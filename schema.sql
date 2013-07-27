@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS `qa_user_sessions`;
+DROP TABLE IF EXISTS `qa_questions_categories`;
 DROP TABLE IF EXISTS `qa_answer_votes`;
 DROP TABLE IF EXISTS `qa_user_votes`;
 DROP TABLE IF EXISTS `qa_admin_logs`;
+DROP TABLE IF EXISTS `qa_categories`;
 DROP TABLE IF EXISTS `qa_answers`;
 DROP TABLE IF EXISTS `qa_questions`;
 DROP TABLE IF EXISTS `qa_admins`;
@@ -9,7 +11,7 @@ DROP TABLE IF EXISTS `qa_users`;
 
 CREATE TABLE `qa_users` (
     `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    /* 同作登录 */
+    /* 用作登录 */
     `no` varchar(10) NOT NULL,
     `name` varchar(64) NOT NULL,
     `major` varchar(64) NOT NULL,
@@ -46,6 +48,21 @@ CREATE TABLE `qa_questions` (
     `edited` timestamp,
     `author_id` int,
     FOREIGN KEY(`author_id`) REFERENCES `qa_users` (`id`)
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `qa_categories` (
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name` varchar(256) NOT NULL,
+    `description` varchar(1024),
+    `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `qa_questions_categories` (
+    `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `question_id` int,
+    `category_id` int,
+    FOREIGN KEY(`question_id`) REFERENCES `qa_questions` (`id`),
+    FOREIGN KEY(`category_id`) REFERENCES `qa_categories` (`id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `qa_answers` (
