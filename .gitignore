@@ -6,3 +6,7 @@ database.php
 config.php
 index.php
 system
+
+vendor/
+application/cache
+component/
