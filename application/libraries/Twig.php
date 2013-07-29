@@ -1,14 +1,6 @@
 <?php if (!defined('BASEPATH')) {exit('No direct script access allowed');}
 
 /*
- * freshman
- *
- * 新生网
- *
- * @author     hbc
- */
-
-/*
  * Twig 渲染接口
  *
  * 调用 twig 渲染模板
