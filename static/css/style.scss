@@ -56,7 +56,7 @@ body {
     margin: auto;
   }
 
-  .votes, .watching {
+  .votes {
     @include border-radius(25px);
     @include border(1px solid rgba(239, 239, 239, 0.7));
 
@@ -73,21 +73,23 @@ body {
   }
 
   .votes {
+    @include transition(background-color 0.5s linear);
+    @include transition(border-radius 0.5s linear);
+
     color: #0088cc;
     background-color: #dfeaf4;
 
-    &.square {
+    &.votting {
       @include border-radius(2px);
+
+      color: #fff;
+      background-color: #0088cc;
     }
 
     &:hover {
       text-decoration: none;
       cursor: pointer;
     }
-  }
-
-  .watching, .badge {
-    overflow-y: hidden;
   }
 }
 
@@ -204,7 +206,6 @@ ul.answers-list {
 }
 
 .copyleft {
-  @include box-shadow(0 -1px 1 0 rgba(0, 0, 0, 0.12));
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 
   @include text-shadow(1px 0 1px rgba(153, 153, 153, 0.2));
@@ -245,5 +246,46 @@ ul.answers-list {
 
   textarea {
     height: 150px;
+  }
+}
+
+.signup, .validate {
+  .logo {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 50px;
+
+    .slogan {
+      font-weight: 400;
+    }
+  }
+
+  .body {
+    .hints, .notes {
+      font-size: 12px;
+      line-height: 12 * 1.5px;
+      color: #999;
+    }
+
+    .notes {
+      margin-top: 10px;
+      margin-left: 43px;
+    }
+  }
+
+  .form {
+    label.control-label {
+      margin-right: 15px;
+      width: 30px;
+      display: block;
+    }
+
+    .controls {
+      margin-left: 0;
+    }
+
+    .form-submit {
+      margin-left: 45px;
+    }
   }
 }

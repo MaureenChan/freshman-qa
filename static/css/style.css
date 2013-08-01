@@ -29,7 +29,7 @@ body {
   text-align: center; }
   .meta .inner {
     margin: auto; }
-  .meta .votes, .meta .watching {
+  .meta .votes {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
@@ -44,17 +44,25 @@ body {
     line-height: 30px;
     background-color: #fff; }
   .meta .votes {
+    -webkit-transition: background-color 0.5s linear;
+    -moz-transition: background-color 0.5s linear;
+    -o-transition: background-color 0.5s linear;
+    transition: background-color 0.5s linear;
+    -webkit-transition: border-radius 0.5s linear;
+    -moz-transition: border-radius 0.5s linear;
+    -o-transition: border-radius 0.5s linear;
+    transition: border-radius 0.5s linear;
     color: #0088cc;
     background-color: #dfeaf4; }
-    .meta .votes.square {
+    .meta .votes.votting {
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
-      border-radius: 2px; }
+      border-radius: 2px;
+      color: #fff;
+      background-color: #0088cc; }
     .meta .votes:hover {
       text-decoration: none;
       cursor: pointer; }
-  .meta .watching, .meta .badge {
-    overflow-y: hidden; }
 
 .body {
   margin-left: 0; }
@@ -138,9 +146,6 @@ ul.answers-list {
         padding: 2px 15px 15px; }
 
 .copyleft {
-  -webkit-box-shadow: 0 -1px 1 0 rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 0 -1px 1 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 -1px 1 0 rgba(0, 0, 0, 0.12);
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   text-shadow: 1px 0 1px rgba(153, 153, 153, 0.2);
   padding-top: 10px;
@@ -166,3 +171,25 @@ ul.answers-list {
     line-height: 50px; }
   .question-form-wrapper textarea {
     height: 150px; }
+
+.signup .logo, .validate .logo {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 50px; }
+  .signup .logo .slogan, .validate .logo .slogan {
+    font-weight: 400; }
+.signup .body .hints, .signup .body .notes, .validate .body .hints, .validate .body .notes {
+  font-size: 12px;
+  line-height: 18px;
+  color: #999; }
+.signup .body .notes, .validate .body .notes {
+  margin-top: 10px;
+  margin-left: 43px; }
+.signup .form label.control-label, .validate .form label.control-label {
+  margin-right: 15px;
+  width: 30px;
+  display: block; }
+.signup .form .controls, .validate .form .controls {
+  margin-left: 0; }
+.signup .form .form-submit, .validate .form .form-submit {
+  margin-left: 45px; }

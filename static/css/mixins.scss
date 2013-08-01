@@ -14,6 +14,13 @@
   text-shadow: $properties;
 }
 
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
 @mixin rotate($degree) {
   -webkit-transform: rotate($degree);
      -moz-transform: rotate($degree);
