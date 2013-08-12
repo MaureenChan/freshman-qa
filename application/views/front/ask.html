@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>freshman qa</title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{ static_url('css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ static_url('css/style.css') }}" />
   </head>
   <body>
     <header role="navigation">
@@ -19,9 +19,9 @@
         <header>
           <h1>我也要向学长问一个问题</h1>
         </header>
-        <form>
+          {{ form | raw }}
           <div class="inner">
-            <input type="text" placeholder="写下你的问题" class="input-block-level" />
+            <input type="text" name="question" placeholder="写下你的问题" class="input-block-level" />
             <label for="description">更详细地描述你的问题（可选）</label>
             <textarea name="description" class="input-block-level"></textarea>
             <label for="topics">为问题挑选话题</label>
