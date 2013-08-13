@@ -1,0 +1,305 @@
+$theme-color: #0078d8;
+$theme-light-color: #fefefe;
+$theme-dark-color: #555;
+
+$base-font-size: 16px;
+$base-line-height: $base-font-size * 1.5;
+
+$faq-block-height: 80px;
+
+/* mixins */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($properties) {
+  -webkit-box-shadow: $properties;
+     -moz-box-shadow: $properties;
+          box-shadow: $properties;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+@mixin unselectable() {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* mixins */
+
+/* elements */
+
+body {
+  border-top: 4px solid $theme-color;
+  background-color: darken($theme-light-color, 2%);
+  font: 500 14px/1.8 微软雅黑, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+/* elements */
+
+/* sections */
+
+#header-pic {
+  @include box-shadow(1px 0 0 0 rgba(0, 0, 0, 0.25));
+  
+  min-height: 400px;
+  position: relative;
+
+  background: 75% 60% no-repeat url('../imgs/bg-5.jpg');
+
+  .logo {
+    position: absolute;
+    margin: -75px;
+    padding: 0;
+    top: 60%;
+    left: 50%;
+    width: 150px;
+
+    text-align: center;
+    font-size: 50px;
+    color: $theme-light-color;
+  }
+}
+
+#intro {
+  min-height: 300px;
+  padding: 50px 0;
+
+  background-color: $theme-color;
+
+  .brand, .slogan {
+    text-align: center;
+    color: $theme-light-color;
+    text-shadow: 0 1px 0 $theme-dark-color;
+  }
+
+  .brand {
+    font-size: 45px;
+  }
+
+  .slogan {
+    font-weight: 200;
+    font-size: 18px;
+    letter-spacing: 7px;
+  }
+}
+
+#faq-list {
+  @include border-radius(7px);
+  @include box-shadow(1px 1px 0 0 rgba(0, 0, 0, 0.1));
+
+  margin-top: - $faq-block-height;
+  margin-bottom: $faq-block-height;
+  padding-left: 0;
+  padding-right: 0;
+
+  background-color: $theme-light-color;
+
+  .list {
+    margin: 0;
+    padding: 0;
+
+    article {
+      min-height: $faq-block-height;
+
+      .load-more-btn {
+        @include transition(color 0.2s linear);
+
+        display: block;
+        margin: 5px 0;
+
+        font-size: 25px;
+        line-height: $faq-block-height;
+        text-align: center;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &.fin {
+          font-style: italic;
+          cursor: default;
+          color: $theme-dark-color;
+        }
+      }
+
+    }
+
+    .q {
+      border-bottom: 1px solid darken($theme-light-color, 10%);
+      cursor: pointer;
+
+      .title {
+        @include unselectable();
+
+        padding: 0 5px 0 15px;
+        margin: 0;
+
+        color: $theme-dark-color;
+        font-size: 25px;
+        line-height: $faq-block-height;
+        text-shadow: 1px 0 0 rgba(0, 0, 0, 0.1);
+
+        .toggle {
+          @include transition(color 0.2s linear);
+
+          margin: 0 10px;
+
+          color: darken($theme-color, 5%);
+        }
+      }
+
+      &:hover {
+        .toggle {
+          color: $theme-color;
+        }
+      }
+    }
+
+    .a {
+      min-height: 1.5 * $faq-block-height;
+      padding: 15px 50px 5px;
+      display: none;
+
+      p {
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+        color: $theme-dark-color;
+      }
+    }
+
+    .open {
+      .q {
+        .toggle {
+          color: lighten($theme-dark-color, 5%);
+        }
+      
+        &:hover {
+          .toggle {
+            color: $theme-dark-color;
+          }
+        }
+      }
+
+      .a {
+        display: block;
+        height: auto;
+
+        background-color: #f6f6f6;
+        border-bottom: 1px solid darken($theme-light-color, 4%);
+      }
+    }
+  }
+}
+
+#copyleft {
+  min-height: 300px;
+  margin-top: 25px;
+
+  border-top: 1px solid darken($theme-light-color, 6%);
+  background-color: #f6f6f6;
+}
+
+#nav {
+  height: 75px;
+
+  border-bottom: 1px solid darken($theme-light-color, 6%);
+
+  .brand {
+    margin: 0;
+    padding: 0;
+
+    font-size: 30px;
+    line-height: 75px;
+    color: #666;
+
+    .logo {
+      font-size: 40px;
+      text-shadow: 0 -1px 0 lighten($theme-dark-color, 35%);
+    }
+
+    a {
+      @include transition(color 0.2s linear);
+
+      color: #666;
+
+      &:hover {
+        color: $theme-dark-color;
+
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#ask {
+  a {
+    @include transition(color 0.2s linear);
+    
+    display: block;
+
+    text-align: right;
+    font-size: $base-font-size;
+    line-height: 75px;
+    color: $theme-dark-color;
+
+    &:hover {
+      text-decoration: none;
+      color: $theme-color;
+    }
+  }
+}
+
+#ref {
+  padding-top: 15px;
+
+  span {
+    display: inline-block;
+
+    border-right: 1px solid darken($theme-light-color, 15%);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    a {
+      @include transition(color 0.2s linear);
+
+      display: block;
+
+      color: darken($theme-light-color, 30%);
+      font-size: 12px;
+      text-align: center;
+
+      &:hover {
+        text-decoration: none;
+        color: darken($theme-light-color, 45%);
+      }
+    }
+  }
+}
+
+#copyright {
+  margin-top: 15px;
+
+  font-size: 12px;
+  color: darken($theme-light-color, 30%);
+  text-align: center;
+}
+
+/* sections */
